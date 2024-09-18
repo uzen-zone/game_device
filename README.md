@@ -19,3 +19,6 @@
 ,RTX2080TI,高画质，高帧率
 
 ,RTX4080SUPER,极致画质，极致帧率
+
+![image](https://github.com/user-attachments/assets/9023630e-e57a-48c9-97ce-4fb0167c1554)
+
