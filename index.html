@@ -28,7 +28,7 @@
 <body>
     <div id="topDiv" style="background-image: url('default.jpg');background-color: black;background-size: cover;
         background-attachment:fixed;width: 100%;height: 100%;">
-        <div id="setting" style="background-color: aliceblue;opacity: 0.75;">
+        <div id="setting" style="background-color: aliceblue;opacity: 0.75;display: block;">
             <div style="margin: 2px;">
                 配置游戏名称<sup title="游戏名称用于区分不同游戏配置，长度不超过8个字符">&#9432;</sup>：
                 <input type="text" id="gameName" name="gameName" maxlength="8" style="width: 120px;"/>
@@ -52,7 +52,7 @@
                 <input type="file" id="textFile" name="textFile" accept=".txt,.csv"/>
             </div>
             <div style="margin: 2px;padding-bottom: 2px;">
-                <input style="width: 120px;" type="button" value="隐藏配置区" title="点击后隐藏配置区，刷新页面将重置配置且重新显示配置区"
+                <input style="width: 120px;" type="button" value="隐藏配置区" title="点击后隐藏配置区，键盘按下ESC键可快速切换配置区的显示与隐藏"
                     onclick="document.getElementById('setting').style.display='none'"/>
             </div>
         </div>
@@ -227,7 +227,15 @@
             quality.value = '';
         }
     });
-
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") { // 检查按下的是否是ESC键
+            if (document.getElementById('setting').style.display === 'block') {
+                document.getElementById('setting').style.display = 'none';
+            } else {
+                document.getElementById('setting').style.display = 'block';
+            }
+        }
+    });
     // 模糊匹配函数
     function fuzzyFind(array, key, value) {
         const pattern = new RegExp(value, 'i'); // 'i' 表示不区分大小写
